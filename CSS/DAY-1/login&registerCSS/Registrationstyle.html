@@ -1,0 +1,102 @@
+<html>
+    <head>
+        <title>Student register</title>
+        <style>
+             h1{
+                position: absolute;
+                left: 350px;
+                color : black ;
+                border: 2px solid rebeccapurple;
+                border-radius: 100px;
+                text-align: center;
+                height: 50px;
+                width: 50%;
+                background-image:linear-gradient(to right,rgb(147, 76, 201),white,rgb(26, 7, 50));
+                cursor: pointer;
+            }
+            .Register{
+                position:absolute;
+                top: 150px;
+                left: 500px;
+                border: 3px solid black;
+                border-radius: 20px;
+                font-size: large;
+                width: 200px;
+                background-image:linear-gradient(to left,#8360c3,rgb(129, 92, 92), #2ebf91);
+            }
+            .loginbutt{
+                width: 100px;
+                height: 30px;
+                font-size: 20px;
+                border: none;
+                background-color: #443265;
+                color: white;
+                border-radius: 20px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+<body>
+    <h1 align="center">Student Register form</h1>
+    <form >
+        <table align="center" class="register"><tr>
+       <td>
+         Firstname:</td>
+         <td><input type="text" name="Firstname"></td>
+        </tr>
+        <tr>
+            <td>Lastname:</td>
+            <td><input type="text" name="Lastname"></td>
+        </tr>
+        <tr>
+            <td>DOB:</td>
+            <td><input type="date"></td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td><input type="email" name="mail"></td>
+        </tr>
+        <tr>
+            <td>Gender:</td>
+            <td>
+                <input type="radio" name="gender">Male
+                <input type="radio" name="gender">Female
+                <input type="radio" name="gender">Others
+            </td>
+        </tr>
+        <tr>
+            <tr>
+                <td>Department:</td>
+                <td>
+                    <select ><option>B.E-Computer Science Engineering</option>
+                        <option>B.E-Electrical Engineering(EEE/ECE)</option>
+                        <option>B.E-Civil Engineering</option>
+                        <option>B.E-Mechanical Engineering.</option>
+                        <option>B.E-BioMedical Engineering</option>
+                        <option>B.Tech-Information Technology</option>
+                        <option>B.Tech. Chemical Engineering</option>
+                        <option>B.Tech. Artificial Intelligence and Data Science</option></select></td></tr>
+            <td>Phone No:</td>
+            <td>
+                <select ><option>+91</option>
+                    <option>+96</option>
+                    <option>+103</option>
+                    <option>+67</option>
+                    <option>+61</option></select>
+                <input type="phone" name="phone_number" maxlength="10"></td></tr>
+                <tr><td>Address:</td><td><textarea> </textarea></td></tr>
+                <tr><td>City:</td><td><input type="text"></td></tr>
+                <tr><td>Pin Code:</td><td><input type="pincode" maxlength="6"></td></tr>
+        <tr>
+            <td>Password:</td>
+            <td><input type="password"></td>
+        </tr>
+        <tr>
+            <td>Confirm Password:</td>
+            <td><input type="password"></td>
+        </tr>
+        <tr><td colspan="2" align="center"><input type="button" value="Submit" class="loginbutt"></td></tr>
+    </table>
+    </form>
+</body>
+</html>
