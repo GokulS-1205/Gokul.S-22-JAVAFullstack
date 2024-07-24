@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>JAVASCRIPT</title>
+        <script>
+            function Myfunction(){
+                let skills=["C", "C++", "JAVA", "PYTHON", "GitHub"];
+                document.write("<br>Array Elements : "+skills);
+                document.write("<br> Total no of Elements : "+ skills.length);
+                document.write("<br> First Element : "+ skills[0]);
+                document.write("<br> Last Element : "+ skills[skills.length-1]);
+                skills.push(".Net");//Add the New element.
+                document.write("<br>Array Elements : "+skills);
+                skills.pop();//Remove the element
+                document.write("<br>Array Elements : "+skills);
+                document.write("<br>Array Elements : ");
+                for(let i=0;i<skills.length;i++){
+                    document.write("<br>"+ skills[i]);
+                }
+            }
+        </script>
+    </head>
+    <body onload="Myfunction()">
+        
+    </body>
+</html>

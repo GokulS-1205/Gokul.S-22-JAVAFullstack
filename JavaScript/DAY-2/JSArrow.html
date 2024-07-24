@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>JSArrowfunction</title>
+    </head>
+    <body>
+        <script>
+        const sum = () => 10 + 20;
+        document.write("<br>Addition : " +sum());//Without Arguments
+        const diff = (x,y) => x - y;
+        document.write("<br>Subraction : " +diff(60,20));//With Arguments
+
+        const mul = (x,y) =>{return (x*y)};
+        document.write("<br>Multiplication : " +mul(10,20));//With Arguments & using return values with braces
+        const large = (x,y) =>{
+            if(x>y)
+            return x;
+        else
+        return y;
+        };
+        document.write("<br>Biggest Number : " +large(10,20));
+        //try getelementbyId
+        const fact=(a) =>{
+            let res=1;
+            for(let i=1;i<=a;i++){
+                        res=res*i;
+                    }
+                    return res;
+        };
+        document.write("<br>Factorial: " +fact(5));
+    </script>
+    </body>
+</html>

@@ -1,0 +1,142 @@
+<html>
+    <head>
+        <title>Calculator</title>
+        <style>
+            .Calci{
+                border: 3px solid black;
+                width:max-content;
+                margin-left: 420px;
+                margin-top: 50px;
+                background-color:gray;
+                border-radius: 10px;
+                box-shadow:0 20px 15px rgb(103, 94, 94);
+            }
+            .row{
+                height: 100px;
+                width: 400px;
+                display: flex;
+            }
+            .button{
+                border: 2px solid black;
+                height: 70px;
+                width: 90px;
+                font-size: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: rgb(116, 231, 223);
+                margin: 8px;
+                border-radius: 60px;
+                border-bottom:2px solid white;
+                cursor: pointer;
+                box-shadow:0 20px 20px black;
+            }
+            .top{
+                border: 2px solid black;
+                height: 70px;
+                width: 90px;
+                font-size: 25px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color:darkgreen;
+                color: white;
+                margin: 8px;
+                border-radius: 60px;
+                border-bottom:2px solid white;
+                box-shadow:0 10px 20px black;
+                cursor: pointer;
+            }
+            .top:hover{
+                background-color: lightgreen;
+                color: black;
+                border: 3px solid black;
+            }
+            .button:hover{
+                border: 5px solid rgb(62, 49, 49);
+                height: 80px;
+                width: 100px;
+                font-size: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color:azure;
+                margin: 8px;
+                border-radius: 30px;
+                cursor: pointer;
+            }
+            #display{
+                height: 90px;
+                width: 380px;
+                border: 3px solid black;
+                border-bottom: none;
+                border-right: none;
+                margin-top: 10px;
+                margin-left: 8px;
+                border-radius: 20px;
+                background-color: white;
+                font-size: 50px;
+            }
+            #display{
+                font-size: 50px;
+            }
+            .full{
+                background-color:rgb(29, 23, 16);
+            }
+        </style>
+    </head>
+    <body class="full">
+        <div class="Calci">
+            <div class="row">
+                <input id="display" placeholder="0">
+            </div>
+            <div class="row">         
+                <button onclick="clearDisplay()" class="top" id="clear">AC</button>
+                <button onclick="Delete()" class="top">DE</button>
+                <button onclick="Display('%')" class="top">%</button>
+                <button onclick="Display('/')" class="top">/</button>
+            </div>
+            <div class="row">          
+                <button onclick="Display('7')" class="button">7</button>
+                <button onclick="Display('8')" class="button">8</button>
+                <button onclick="Display('9')" class="button">9</button>
+                <button onclick="Display('*')" class="top">*</button>
+            </div>
+            <div class="row">
+                <button onclick="Display('4')" class="button">4</button>
+                <button onclick="Display('5')" class="button">5</button>
+                <button onclick="Display('6')" class="button">6</button>
+                <button onclick="Display('-')" class="top">-</button>
+            </div>
+            <div class="row">
+                <button onclick="Display('1')" class="button">1</button>
+                <button onclick="Display('2')" class="button">2</button>
+                <button onclick="Display('3')" class="button">3</button>
+                <button onclick="Display('+')" class="top">+</button>
+            </div>
+            <div class="row">
+                <button onclick="Display('00')" class="button">00</button>
+                <button onclick="Display('0')" class="button">0</button>
+                <button onclick="Display('.')" class="button">.</button>
+                <button onclick="calculate()" class="top">=</button>
+            </div>
+        </div>
+        <script>
+            const display = document.getElementById("display");
+            function Display(input){
+                display.value +=input;
+            }
+            function clearDisplay(){
+                 display.value="";
+            }
+            function calculate(){
+                try{
+                    display.value=eval(display.value);
+                }
+                catch(error){
+                    display.value="ERROR";
+                }
+            }
+        </script>
+    </body>
+</html>
