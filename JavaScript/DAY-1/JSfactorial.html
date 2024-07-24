@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Factorial in JavaScript</title>
+        <script>
+            function calculator(){
+                    let a = parseInt(document.getElementById("n1").value);
+                    let result="1";
+                    for(let i=1;i<=a;i++){
+                        result=result*i;
+                    }
+                    document.getElementById("ResultDiv").innerHTML="Factorial: " +result;
+            }
+        </script>
+    </head>
+    <body>
+        Enter First number <input type="text" id="n1" value="enter number"><br>
+       <button onclick="calculator()">Calculate</button>
+    <br>
+    <div id="ResultDiv">
+    </body>
+</html>

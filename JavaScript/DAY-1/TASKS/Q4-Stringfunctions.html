@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>String Functions</title>
+        <script>
+            function string(){
+                let s=document.getElementById("str").value;
+                let t=document.getElementById("secstr").value;
+                //let list=document.getElementById("list").value;
+                let result=" ";
+                document.getElementById("ResultDiv").innerHTML="Length of str: " + s.length;
+                document.getElementById("charAt").innerHTML="Charat(0) of str: " + s.charAt(5);
+                document.getElementById("slice").innerHTML="Slice of str: " + s.slice(1,4);
+                document.getElementById("substring").innerHTML="Substring:" + s.substring(2,5);
+                document.getElementById("substr").innerHTML="Substr: " + s.substr(2,4);
+                document.getElementById("upper").innerHTML="Uppercase: " + s.toUpperCase();
+                document.getElementById("lower").innerHTML="Lowercase: " + s.toLowerCase();
+                document.getElementById("concat").innerHTML="Add 2nd Str: " + s.concat(" ",t);
+                document.getElementById("trim").innerHTML="Trim:" + s.trim();
+                document.getElementById("trimStart").innerHTML="Trim Start only: " + s.trimStart();
+                document.getElementById("repeat").innerHTML="Repeat: " + s.repeat(3);
+                document.getElementById("trimend").innerHTML="Trim End only: " + s.trimEnd();
+                document.getElementById("replace").innerHTML="Replace: " + s.replace("gin","ngi");
+                document.getElementById("replaceall").innerHTML="Replaceall" + s.replaceAll("e","f");
+                document.getElementById("split").innerHTML="Split e: " + s.split("e");
+            }
+        </script>
+    </head>
+    <body>
+        Enter The String <input type="text" id="str" value="Enter String" onfocus="this.value=''"><br>
+        Enter The 2nd String <input type="text" id="secstr" value="Enter String" onfocus="this.value=''"><br>
+    <br>
+    Click For Output---<button onclick="string()">HERE</button><br><br>
+    <div id="ResultDiv"></div>
+    <div id="charAt"></div>
+    <div id="slice"></div>
+    <div id="substring"></div>
+    <div id="substr"></div>
+    <div id="upper"></div>
+    <div id="lower"></div>
+    <div id="concat"></div>
+    <div id="trim"></div>
+    <div id="trimStart"></div>
+    <div id="repeat"></div>
+    <div id="trimend"></div>
+    <div id="replace"></div>
+    <div id="replaceall"></div>
+    <div id="split"></div>
+</html>

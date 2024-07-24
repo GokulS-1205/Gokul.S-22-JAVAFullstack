@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Right Angle Triangle</title>
+        <script></script>
+        <script>
+            function Pattern(){
+                let n=document.getElementById("Triangle").value;
+            for(let i=0;i<n;i++){
+             for(let j=0;j<=i;j++){
+                document.write("*");
+             }
+             document.write("<br>");
+            }
+
+            }
+        </script>
+    </head>
+    <body>
+        Enter The Number <input type="text" id="Triangle" value="enter number" onfocus="this.value=''" onblur="Pattern()"><br>
+       <!--<button onclick="Pattern()">Calculate</button>-->
+    <br>
+    <div id="ResultDiv">
+    </div>
+    </body>
+</html>
