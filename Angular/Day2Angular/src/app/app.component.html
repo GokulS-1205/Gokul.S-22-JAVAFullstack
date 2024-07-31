@@ -1,0 +1,28 @@
+<h1 [ngClass]="myClass">Structural And Attribute Directives</h1>
+<br>
+<button (click)="changeFlag()">Show or Hide Div</button>
+<br>
+<div *ngIf="flag">
+  My Div
+</div><br>
+  <button (click)="change()">Hide</button>
+  <div *ngIf="fla" [ngStyle]="myStyle">  
+  <br>
+  <ul>
+    <li *ngFor="let vec of vehicles" (click)="setSelectedItem(vec)">{{vec}}</li>
+  </ul>
+<br>
+<h2><b>You have selected : {{selectedVehicle}}</b></h2>
+<div [ngSwitch]="selectedVehicle">
+  <font color="green " *ngSwitchCase="'TwoWheeler'">Bike</font>
+  <font color="green " *ngSwitchCase="'ThreeWheeler'">Auto</font>
+  <font color="green " *ngSwitchCase="'FourWheeler'">Car</font>
+  <font color="red" *ngSwitchDefault>Invalid</font>
+</div>
+<br>
+<button (click)="changeStyle()">ChangeBorder</button><br>
+</div><br>
+<button (click)="changecolor()">Changecolor</button>
+
+
+
