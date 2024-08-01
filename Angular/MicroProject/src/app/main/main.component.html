@@ -1,0 +1,29 @@
+<!-- <html>
+    <body> -->
+    <div class="main" >
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <div>
+        <label><b>STUDENT NAME</b></label><br>
+        <input type="text" required placeholder="Enter the Name" [(ngModel)]="Stuname" name="name" ><br><br>
+        <label><b>STUDENT ID</b></label><br>
+        <input type="text" required placeholder="Enter the Id" [(ngModel)]="Stuid" name="id" ><br><br>
+        <label><b>COURSE NAME</b></label><br>
+        <input type="text" required placeholder="Enter the Course Name" [(ngModel)]="Couname" name="name"><br><br>
+        <label><b>FEES</b></label><br>
+        <input typ
+        e="number" required placeholder="Enter Total Fees" [(ngModel)]="Fees" name="fees" ><br><br>
+        <div style="display: flex; justify-content: space-between; ">
+            <button type="button" style="background-color: rgb(20, 159, 20); border: none; border-radius: 10px; width: 80px; height: 40px; color: aliceblue;" (click)="savedetails()">SAVE</button>
+            <button type="button" style="background-color: rgb(11, 103, 189); border: none; border-radius: 10px; width: 80px; color: aliceblue;" >UPDATE</button>
+            <button type="button" style="background-color: rgb(205, 34, 34); border: none; border-radius: 10px; width: 80px; color: aliceblue;"  >DELETE</button>
+        </div>
+    </div>
+    Student Details
+       <ul>
+        <li *ngFor="let show of dis">{{show}}</li>
+        
+       </ul>
+    </div>
+       
+    
