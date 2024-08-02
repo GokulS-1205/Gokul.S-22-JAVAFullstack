@@ -1,5 +1,5 @@
 {
-  "name": "day3-angular-router",
+  "name": "employee-ms",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:DAY3AngularRouter": "node dist/day3-angular-router/server/server.mjs"
+    "json-server": "json-server --watch db.json --port 3004", 
+    "serve:ssr:EmployeeMS": "node dist/employee-ms/server/server.mjs"
   },
   "private": true,
   "dependencies": {

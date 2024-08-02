@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "DAY3AngularRouter": {
+    "EmployeeMS": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/day3-angular-router",
+            "outputPath": "dist/employee-ms",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -74,10 +74,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "DAY3AngularRouter:build:production"
+              "buildTarget": "EmployeeMS:build:production"
             },
             "development": {
-              "buildTarget": "DAY3AngularRouter:build:development"
+              "buildTarget": "EmployeeMS:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -107,5 +107,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "eef97d04-e611-4956-9c6c-d47ed1052db8"
   }
 }

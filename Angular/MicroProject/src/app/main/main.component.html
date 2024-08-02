@@ -1,29 +1,64 @@
-<!-- <html>
-    <body> -->
-    <div class="main" >
+<html>
+    <head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-        <div>
+        
+    </head>
+    <body>
+<div class="main" >
+      <div>
         <label><b>STUDENT NAME</b></label><br>
-        <input type="text" required placeholder="Enter the Name" [(ngModel)]="Stuname" name="name" ><br><br>
+        <input type="text" required pattern="[A-Z-a-z]+" placeholder="Enter the Name" [(ngModel)]="Stuname" name="name" #name="ngModel" ><br>
+        <div *ngIf="name.touched">
+            <div *ngIf="name.errors?.['required']">
+              <b style="color: red;">Student Name Required..</b>
+            </div>
+            <div *ngIf="name.errors?.['pattern']">
+              <font color="red"><b>Invalid Student Name..</b></font>
+          </div>
+        </div><br>
         <label><b>STUDENT ID</b></label><br>
-        <input type="text" required placeholder="Enter the Id" [(ngModel)]="Stuid" name="id" ><br><br>
+        <input type="text" required pattern="[0-9-A-Z-a-z]+" placeholder="Enter the Id" [(ngModel)]="Stuid" name="id" #id="ngModel"><br>
+        <div *ngIf="id.touched">
+            <div *ngIf="id.errors?.['required']">
+              <b style="color: red;">Student Id Required..</b>
+            </div>
+            <div *ngIf="id.errors?.['pattern']">
+              <font color="red"><b>Invalid Student Id..</b></font>
+          </div>
+        </div><br>
         <label><b>COURSE NAME</b></label><br>
-        <input type="text" required placeholder="Enter the Course Name" [(ngModel)]="Couname" name="name"><br><br>
+        <input type="text" required pattern="[A-Z-a-z]+" placeholder="Enter the Course Name" [(ngModel)]="Couname" name="Course" #Course="ngModel"><br> 
+         <div *ngIf="Course.touched">
+           <div *ngIf="Course.errors?.['required']">
+              <b style="color: red;">Course Name Required..</b>
+            </div>
+            <div *ngIf="Course.errors?.['pattern']">
+              <font color="red"><b>Invalid Course Name..</b></font>
+          </div>
+        </div><br>
         <label><b>FEES</b></label><br>
-        <input typ
-        e="number" required placeholder="Enter Total Fees" [(ngModel)]="Fees" name="fees" ><br><br>
+        <input type="number" required pattern="[0-9]+" placeholder="Enter Total Fees" [(ngModel)]="Fees" name="fees" #fees="ngModel" ><br> 
+        <div *ngIf="fees.touched">
+            <div *ngIf="fees.errors?.['required']">
+              <b style="color: red;">Fees Required..</b>
+            </div>
+            <div *ngIf="fees.errors?.['pattern']">
+              <font color="red"><b>Invalid Fees..</b></font>
+          </div>
+        </div><br>
         <div style="display: flex; justify-content: space-between; ">
-            <button type="button" style="background-color: rgb(20, 159, 20); border: none; border-radius: 10px; width: 80px; height: 40px; color: aliceblue;" (click)="savedetails()">SAVE</button>
-            <button type="button" style="background-color: rgb(11, 103, 189); border: none; border-radius: 10px; width: 80px; color: aliceblue;" >UPDATE</button>
-            <button type="button" style="background-color: rgb(205, 34, 34); border: none; border-radius: 10px; width: 80px; color: aliceblue;"  >DELETE</button>
+            <button type="button" class="btn btn-success" (click)="savedetails()">SAVE</button>
+            <button type="button" class="btn btn-primary" >UPDATE</button>
+            <button type="button" class="btn btn-danger"  >DELETE</button>
+            <button type="button" class="btn btn-warning"  >FIND</button>
+            <button type="button" class="btn btn-info"  >FIND ALL</button>
         </div>
     </div>
-    Student Details
        <ul>
         <li *ngFor="let show of dis">{{show}}</li>
-        
        </ul>
-    </div>
-       
+</div>
+    </body>
+</html>
     

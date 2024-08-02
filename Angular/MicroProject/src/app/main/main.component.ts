@@ -29,7 +29,8 @@ export class MainComponent {
     this.detail+=this.Stuid+"-";
     this.detail+=this.Couname+"-";
     this.detail+=this.Fees+"";
+    alert(this.detail);
     this.dis.push(this.detail);
-    console.log(this.detail);
+    // console.log(this.detail);
   }
 }
