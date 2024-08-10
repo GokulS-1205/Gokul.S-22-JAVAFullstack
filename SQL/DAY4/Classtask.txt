@@ -1,0 +1,719 @@
+SQL> SELECT a.agent_name,c.Coustomer_name,c.Coustomer_area from Agents a join Coustomers c on a.Working_area=c.coustomer_area;
+
+AGENT_NAME           COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- -------------------- --------------------
+agent2               coustomer1           chennai
+agent1               coustomer1           chennai
+agent2               coustomer2           chennai
+agent1               coustomer2           chennai
+agent2               coustomer3           chennai
+agent1               coustomer3           chennai
+agent4               coustomer4           bangalore
+agent3               coustomer4           bangalore
+agent4               coustomer5           bangalore
+agent3               coustomer5           bangalore
+
+10 rows selected.
+
+SQL> SELECT agents.agent_name,coustomers.Coustomer_name,coustomers.Coustomer_area from Agents join Coustomers on agents.Working_area=coustomers.coustomer_area;
+
+AGENT_NAME           COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- -------------------- --------------------
+agent2               coustomer1           chennai
+agent1               coustomer1           chennai
+agent2               coustomer2           chennai
+agent1               coustomer2           chennai
+agent2               coustomer3           chennai
+agent1               coustomer3           chennai
+agent4               coustomer4           bangalore
+agent3               coustomer4           bangalore
+agent4               coustomer5           bangalore
+agent3               coustomer5           bangalore
+
+10 rows selected.
+
+SQL> SELECT agents.agent_name,coustomers.Coustomer_name,coustomers.Coustomer_area from Agents join Coustomers on agents.Working_area<>coustomers.coustomer_area;
+
+AGENT_NAME           COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- -------------------- --------------------
+agent1               coustomer4           bangalore
+agent1               coustomer5           bangalore
+agent2               coustomer4           bangalore
+agent2               coustomer5           bangalore
+agent3               coustomer1           chennai
+agent3               coustomer2           chennai
+agent3               coustomer3           chennai
+agent4               coustomer1           chennai
+agent4               coustomer2           chennai
+agent4               coustomer3           chennai
+
+10 rows selected.
+
+SQL> SELECT agents.agent_name,coustomers.Coustomer_name,coustomers.Coustomer_area from Agents join Coustomers on agents.Working_area!=coustomers.coustomer_area;
+
+AGENT_NAME           COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- -------------------- --------------------
+agent1               coustomer4           bangalore
+agent1               coustomer5           bangalore
+agent2               coustomer4           bangalore
+agent2               coustomer5           bangalore
+agent3               coustomer1           chennai
+agent3               coustomer2           chennai
+agent3               coustomer3           chennai
+agent4               coustomer1           chennai
+agent4               coustomer2           chennai
+agent4               coustomer3           chennai
+
+10 rows selected.
+
+SQL> insert into Agents values('A105','agent5','New york');
+
+1 row created.
+
+SQL> insert into Coustomers values('C106','coustomer6','Delhi');
+
+1 row created.
+
+SQL> select * from Agents;
+
+AGENT_CODE AGENT_NAME           WORKING_AREA
+---------- -------------------- --------------------
+A101       agent1               chennai
+A102       agent2               chennai
+A103       agent3               bangalore
+A104       agent4               bangalore
+A105       agent5               New york
+
+SQL> select * from Coustomers;
+
+COUSTOMER_ COUSTOMER_NAME       COUSTOMER_AREA
+---------- -------------------- --------------------
+C101       coustomer1           chennai
+C102       coustomer2           chennai
+C103       coustomer3           chennai
+C104       coustomer4           bangalore
+C105       coustomer5           bangalore
+C106       coustomer6           Delhi
+
+6 rows selected.
+
+SQL> select * from Agents left outer join Coustomers on agents.woking_area=Coustomers.Coustomer_area;
+select * from Agents left outer join Coustomers on agents.woking_area=Coustomers.Coustomer_area
+                                                   *
+ERROR at line 1:
+ORA-00904: "AGENTS"."WOKING_AREA": invalid identifier
+
+
+SQL> select * from Agents left outer join Coustomers on Agents.woking_area=Coustomers.Coustomer_area;
+select * from Agents left outer join Coustomers on Agents.woking_area=Coustomers.Coustomer_area
+                                                   *
+ERROR at line 1:
+ORA-00904: "AGENTS"."WOKING_AREA": invalid identifier
+
+
+SQL> select * from Agents left outer join Coustomers on Agents.Woking_area=Coustomers.Coustomer_area;
+select * from Agents left outer join Coustomers on Agents.Woking_area=Coustomers.Coustomer_area
+                                                   *
+ERROR at line 1:
+ORA-00904: "AGENTS"."WOKING_AREA": invalid identifier
+
+
+SQL> select * from Agents left outer join Coustomers on Agents.Working_area=Coustomers.Coustomer_area;
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A102       agent2               chennai              C101
+coustomer1           chennai
+
+A101       agent1               chennai              C101
+coustomer1           chennai
+
+A102       agent2               chennai              C102
+coustomer2           chennai
+
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A101       agent1               chennai              C102
+coustomer2           chennai
+
+A102       agent2               chennai              C103
+coustomer3           chennai
+
+A101       agent1               chennai              C103
+coustomer3           chennai
+
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A104       agent4               bangalore            C104
+coustomer4           bangalore
+
+A103       agent3               bangalore            C104
+coustomer4           bangalore
+
+A104       agent4               bangalore            C105
+coustomer5           bangalore
+
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A103       agent3               bangalore            C105
+coustomer5           bangalore
+
+A105       agent5               New york
+
+
+
+11 rows selected.
+
+SQL> select * from Agents left join Coustomers on Agents.Working_area=Coustomers.Coustomer_area;
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A102       agent2               chennai              C101
+coustomer1           chennai
+
+A101       agent1               chennai              C101
+coustomer1           chennai
+
+A102       agent2               chennai              C102
+coustomer2           chennai
+
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A101       agent1               chennai              C102
+coustomer2           chennai
+
+A102       agent2               chennai              C103
+coustomer3           chennai
+
+A101       agent1               chennai              C103
+coustomer3           chennai
+
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A104       agent4               bangalore            C104
+coustomer4           bangalore
+
+A103       agent3               bangalore            C104
+coustomer4           bangalore
+
+A104       agent4               bangalore            C105
+coustomer5           bangalore
+
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A103       agent3               bangalore            C105
+coustomer5           bangalore
+
+A105       agent5               New york
+
+
+
+11 rows selected.
+
+SQL> select * from Agents,Coustomers where Agents.Working_area=Coustomers.Coustomer_area;
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A102       agent2               chennai              C101
+coustomer1           chennai
+
+A101       agent1               chennai              C101
+coustomer1           chennai
+
+A102       agent2               chennai              C102
+coustomer2           chennai
+
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A101       agent1               chennai              C102
+coustomer2           chennai
+
+A102       agent2               chennai              C103
+coustomer3           chennai
+
+A101       agent1               chennai              C103
+coustomer3           chennai
+
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A104       agent4               bangalore            C104
+coustomer4           bangalore
+
+A103       agent3               bangalore            C104
+coustomer4           bangalore
+
+A104       agent4               bangalore            C105
+coustomer5           bangalore
+
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A103       agent3               bangalore            C105
+coustomer5           bangalore
+
+
+10 rows selected.
+
+SQL> select * from Agents right outer join Coustomers on Agents.Working_area=Coustomers.Coustomer_area;
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A101       agent1               chennai              C103
+coustomer3           chennai
+
+A101       agent1               chennai              C102
+coustomer2           chennai
+
+A101       agent1               chennai              C101
+coustomer1           chennai
+
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A102       agent2               chennai              C103
+coustomer3           chennai
+
+A102       agent2               chennai              C102
+coustomer2           chennai
+
+A102       agent2               chennai              C101
+coustomer1           chennai
+
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A103       agent3               bangalore            C105
+coustomer5           bangalore
+
+A103       agent3               bangalore            C104
+coustomer4           bangalore
+
+A104       agent4               bangalore            C105
+coustomer5           bangalore
+
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A104       agent4               bangalore            C104
+coustomer4           bangalore
+
+                                                     C106
+coustomer6           Delhi
+
+
+11 rows selected.
+
+SQL> select * from Agents right join Coustomers on Agents.Working_area=Coustomers.Coustomer_area;
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A101       agent1               chennai              C103
+coustomer3           chennai
+
+A101       agent1               chennai              C102
+coustomer2           chennai
+
+A101       agent1               chennai              C101
+coustomer1           chennai
+
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A102       agent2               chennai              C103
+coustomer3           chennai
+
+A102       agent2               chennai              C102
+coustomer2           chennai
+
+A102       agent2               chennai              C101
+coustomer1           chennai
+
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A103       agent3               bangalore            C105
+coustomer5           bangalore
+
+A103       agent3               bangalore            C104
+coustomer4           bangalore
+
+A104       agent4               bangalore            C105
+coustomer5           bangalore
+
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A104       agent4               bangalore            C104
+coustomer4           bangalore
+
+                                                     C106
+coustomer6           Delhi
+
+
+11 rows selected.
+
+SQL> select * from Agents full outer join Coustomers on Agents.Working_area=Coustomers.Coustomer_area;
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A102       agent2               chennai              C101
+coustomer1           chennai
+
+A101       agent1               chennai              C101
+coustomer1           chennai
+
+A102       agent2               chennai              C102
+coustomer2           chennai
+
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A101       agent1               chennai              C102
+coustomer2           chennai
+
+A102       agent2               chennai              C103
+coustomer3           chennai
+
+A101       agent1               chennai              C103
+coustomer3           chennai
+
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A104       agent4               bangalore            C104
+coustomer4           bangalore
+
+A103       agent3               bangalore            C104
+coustomer4           bangalore
+
+A104       agent4               bangalore            C105
+coustomer5           bangalore
+
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A103       agent3               bangalore            C105
+coustomer5           bangalore
+
+                                                     C106
+coustomer6           Delhi
+
+A105       agent5               New york
+
+
+
+12 rows selected.
+
+SQL> select * from Agents full join Coustomers on Agents.Working_area=Coustomers.Coustomer_area;
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A102       agent2               chennai              C101
+coustomer1           chennai
+
+A101       agent1               chennai              C101
+coustomer1           chennai
+
+A102       agent2               chennai              C102
+coustomer2           chennai
+
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A101       agent1               chennai              C102
+coustomer2           chennai
+
+A102       agent2               chennai              C103
+coustomer3           chennai
+
+A101       agent1               chennai              C103
+coustomer3           chennai
+
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A104       agent4               bangalore            C104
+coustomer4           bangalore
+
+A103       agent3               bangalore            C104
+coustomer4           bangalore
+
+A104       agent4               bangalore            C105
+coustomer5           bangalore
+
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A103       agent3               bangalore            C105
+coustomer5           bangalore
+
+                                                     C106
+coustomer6           Delhi
+
+A105       agent5               New york
+
+
+
+12 rows selected.
+
+SQL> select * from Coustomers;
+
+COUSTOMER_ COUSTOMER_NAME       COUSTOMER_AREA
+---------- -------------------- --------------------
+C101       coustomer1           chennai
+C102       coustomer2           chennai
+C103       coustomer3           chennai
+C104       coustomer4           bangalore
+C105       coustomer5           bangalore
+C106       coustomer6           Delhi
+
+6 rows selected.
+
+SQL> select a.Agent_code,b.agent_name from agents a,agents b where a.Working_area=b.Working_area;
+
+AGENT_CODE AGENT_NAME
+---------- --------------------
+A102       agent1
+A101       agent1
+A102       agent2
+A101       agent2
+A104       agent3
+A103       agent3
+A104       agent4
+A103       agent4
+A105       agent5
+
+9 rows selected.
+
+SQL> select * from Agents cross join Coustomers;
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A101       agent1               chennai              C101
+coustomer1           chennai
+
+A101       agent1               chennai              C102
+coustomer2           chennai
+
+A101       agent1               chennai              C103
+coustomer3           chennai
+
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A101       agent1               chennai              C104
+coustomer4           bangalore
+
+A101       agent1               chennai              C105
+coustomer5           bangalore
+
+A101       agent1               chennai              C106
+coustomer6           Delhi
+
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A102       agent2               chennai              C101
+coustomer1           chennai
+
+A102       agent2               chennai              C102
+coustomer2           chennai
+
+A102       agent2               chennai              C103
+coustomer3           chennai
+
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A102       agent2               chennai              C104
+coustomer4           bangalore
+
+A102       agent2               chennai              C105
+coustomer5           bangalore
+
+A102       agent2               chennai              C106
+coustomer6           Delhi
+
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A103       agent3               bangalore            C101
+coustomer1           chennai
+
+A103       agent3               bangalore            C102
+coustomer2           chennai
+
+A103       agent3               bangalore            C103
+coustomer3           chennai
+
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A103       agent3               bangalore            C104
+coustomer4           bangalore
+
+A103       agent3               bangalore            C105
+coustomer5           bangalore
+
+A103       agent3               bangalore            C106
+coustomer6           Delhi
+
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A104       agent4               bangalore            C101
+coustomer1           chennai
+
+A104       agent4               bangalore            C102
+coustomer2           chennai
+
+A104       agent4               bangalore            C103
+coustomer3           chennai
+
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A104       agent4               bangalore            C104
+coustomer4           bangalore
+
+A104       agent4               bangalore            C105
+coustomer5           bangalore
+
+A104       agent4               bangalore            C106
+coustomer6           Delhi
+
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A105       agent5               New york             C101
+coustomer1           chennai
+
+A105       agent5               New york             C102
+coustomer2           chennai
+
+A105       agent5               New york             C103
+coustomer3           chennai
+
+
+AGENT_CODE AGENT_NAME           WORKING_AREA         COUSTOMER_
+---------- -------------------- -------------------- ----------
+COUSTOMER_NAME       COUSTOMER_AREA
+-------------------- --------------------
+A105       agent5               New york             C104
+coustomer4           bangalore
+
+A105       agent5               New york             C105
+coustomer5           bangalore
+
+A105       agent5               New york             C106
+coustomer6           Delhi
+
+
+30 rows selected.
+
+SQL> select * from coustomers where coustomer_area=(select working_area from Agents where Agent_code='A101');
+
+COUSTOMER_ COUSTOMER_NAME       COUSTOMER_AREA
+---------- -------------------- --------------------
+C101       coustomer1           chennai
+C102       coustomer2           chennai
+C103       coustomer3           chennai
+
+SQL> select * from coustomers where coustomer_area=(select working_area from Agents where Agent_code='A101' or Agent_code='A104');
+select * from coustomers where coustomer_area=(select working_area from Agents where Agent_code='A101' or Agent_code='A104')
+                                               *
+ERROR at line 1:
+ORA-01427: single-row subquery returns more than one row
+
+
+SQL> select * from coustomers where coustomer_area in(select working_area from Agents where Agent_code='A101' or Agent_code='A104');
+
+COUSTOMER_ COUSTOMER_NAME       COUSTOMER_AREA
+---------- -------------------- --------------------
+C103       coustomer3           chennai
+C102       coustomer2           chennai
+C101       coustomer1           chennai
+C105       coustomer5           bangalore
+C104       coustomer4           bangalore
